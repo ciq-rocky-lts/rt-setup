@@ -1,0 +1,28 @@
+From f29bccfe2e3610a4bd10e01188ec869be100f2ce Mon Sep 17 00:00:00 2001
+From: John Kacur <jkacur@redhat.com>
+Date: Thu, 19 May 2022 14:27:51 -0400
+Subject: [PATCH] rt-setup: remove strip of rt-entsk
+
+Remove '-s' argument from the install command for rt-entsk
+
+Signed-off-by: John Kacur <jkacur@redhat.com>
+---
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Makefile b/Makefile
+index a1cda5cb2510..a86c927a1217 100644
+--- a/Makefile
++++ b/Makefile
+@@ -57,7 +57,7 @@ install:
+ 	install -m 755 -D rt-setup.systemd $(DEST)/usr/bin/rt-setup
+ 	install -m 644 -D realtime.conf $(DEST)/etc/security/limits.d/realtime.conf
+ 	install -m 644 -D rt-entsk.service $(DEST)/usr/lib/systemd/system/rt-entsk.service
+-	install -m 755 -D -s rt-entsk $(DEST)/usr/sbin/rt-entsk
++	install -m 755 -D rt-entsk $(DEST)/usr/sbin/rt-entsk
+ 	install -m 644 -D rt-setup.service $(DEST)/usr/lib/systemd/system/rt-setup.service
+ 
+ dist-git: tarball
+-- 
+2.36.1
+
